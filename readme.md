@@ -21,7 +21,7 @@ Each environment folder contains its own manifests, installation notes, Dockerfi
 │   ├── install strimzi-0.45.0.md     # Installation steps for Strimzi 0.45.0
 │   ├── namespace.yaml                # Kubernetes namespace definition
 │   └── plugins/                      # Debezium connectors (MySQL, SQL Server)
-└── prod/   # Production-like environment (K8S 1.33.1, Strimzi 0.46.1)
+└── prod/   # Production environment  (K8S 1.33.1, Strimzi 0.46.1)
     ├── cluster.strimzi-0.46.1.yaml   # Strimzi 0.46.1 cluster configuration
     ├── Dockerfile                    # Strimzi 0.46.1 + Kafka 3.9.0 + Debezium 3.2.2
     ├── install k3s-1.33.1.md         # Installation steps for K3S 1.33.1
