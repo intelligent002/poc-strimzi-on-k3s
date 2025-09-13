@@ -26,6 +26,11 @@ kubectl apply -f cluster.strimzi-0.46.1.yaml -n strimzi
 kubectl delete -f cluster.strimzi-0.46.1.yaml -n strimzi
 ```
 
+# check status of connect cluster
+```
+kubectl get kafkaconnect my-connect -n strimzi -o yaml
+```
+
 # request Connect API for list of installed connectors
 ```
 kubectl exec -n strimzi my-connect-connect-0 --   curl -s http://localhost:8083/connectors
@@ -52,5 +57,3 @@ kubectl exec -it my-cluster-brokers-0 -n strimzi -- /opt/kafka/bin/kafka-console
 ```
 kubectl exec -it my-cluster-brokers-0 -n strimzi -- /bin/bash
 ```
-
-
