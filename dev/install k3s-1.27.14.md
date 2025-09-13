@@ -1,7 +1,7 @@
 # Prerequisites:
 
 * Add secondary drive to vm, with 100gb
-* format as ext4 to improve k3s filesystem monitoring
+* format as ext4 to improve K3S filesystem monitoring
 * xfs also works, but complaints
 * mount as /data
 
