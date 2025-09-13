@@ -33,7 +33,7 @@ kubectl get kafkaconnect my-connect -n strimzi -o yaml
 
 # request Connect API for list of installed connectors
 ```
-kubectl exec -n strimzi my-connect-connect-0 --   curl -s http://localhost:8083/connectors
+kubectl exec -n strimzi my-connect-connect-0 -- curl -s http://localhost:8083/connectors
 ```
 
 # check status of particular connector
