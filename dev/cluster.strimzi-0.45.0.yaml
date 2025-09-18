@@ -115,12 +115,12 @@ spec:
   tasksMax: 1
   config:
     database.hostname: kafka-mssql.intel.r7g.org
-    database.names: FHIR
     database.port: 1433
     database.user: debezium_user
     database.password: StrongPassword123!
+    database.names: FHIR
+    database.encrypt: false
+    database.trustServerCertificate: false
+    topic.prefix: cdc-mssql
     schema.history.internal.kafka.bootstrap.servers: my-cluster-kafka-bootstrap:9092
     schema.history.internal.kafka.topic: cdc-mssql-schema-history
-    topic.prefix: cdc-mssql
-    database.encrypt: "true"
-    database.trustServerCertificate: "true"

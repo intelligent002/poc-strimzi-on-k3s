@@ -1,0 +1,371 @@
+[root@dev meuhedet]#  java -Djavax.net.debug=ssl,handshake \
+        -cp .:mssql-jdbc.jar Tester \
+        -user "debezium_user" \
+        -pass "StrongPassword123!" \
+        -host "kafka-mssql.intel.r7g.org" \
+        -base "FHIR" \
+        -encrypt "true" \
+        -trustServerCertificate "false"
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+ ?? Connecting to: jdbc:sqlserver://kafka-mssql.intel.r7g.org:1433;databaseName=FHIR;encrypt=true;trustServerCertificate=false
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.525 PDT|SSLCipher.java:466|jdk.tls.keyLimits:  entry = AES/GCM/NoPadding KeyUpdate 2^37. AES/GCM/NOPADDING:KEYUPDATE = 137438953472
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.548 PDT|SSLCipher.java:466|jdk.tls.keyLimits:  entry =  ChaCha20-Poly1305 KeyUpdate 2^37. CHACHA20-POLY1305:KEYUPDATE = 137438953472
+javax.net.ssl|INFO|10|main|2025-09-18 14:15:27.647 PDT|AlpnExtension.java:182|No available application protocols
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.648 PDT|SSLExtensions.java:272|Ignore, context unavailable extension: application_layer_protocol_negotiation
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.648 PDT|SessionTicketExtension.java:353|Stateless resumption supported
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.650 PDT|SSLExtensions.java:272|Ignore, context unavailable extension: cookie
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.682 PDT|SSLExtensions.java:272|Ignore, context unavailable extension: renegotiation_info
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.683 PDT|PreSharedKeyExtension.java:661|No session to resume.
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.683 PDT|SSLExtensions.java:272|Ignore, context unavailable extension: pre_shared_key
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.697 PDT|ClientHello.java:639|Produced ClientHello handshake message (
+"ClientHello": {
+  "client version"      : "TLSv1.2",
+  "random"              : "0C3B72A429CB2872FDC3219E24664C36C7787D57645F8E6FE437BB2B25CD19CA",
+  "session id"          : "9DAB8034E4148C4A412D858694F8DBD967BA4AF6D27C65FBA3CB11B637EB8EE8",
+  "cipher suites"       : "[TLS_AES_256_GCM_SHA384(0x1302), TLS_AES_128_GCM_SHA256(0x1301), TLS_CHACHA20_POLY1305_SHA256(0x1303), TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384(0xC02C), TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256(0xC02B), TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256(0xCCA9), TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384(0xC030), TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256(0xCCA8), TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256(0xC02F), TLS_DHE_RSA_WITH_AES_256_GCM_SHA384(0x009F), TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256(0xCCAA), TLS_DHE_RSA_WITH_AES_128_GCM_SHA256(0x009E), TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384(0xC024), TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384(0xC028), TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256(0xC023), TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256(0xC027), TLS_DHE_RSA_WITH_AES_256_CBC_SHA256(0x006B), TLS_DHE_RSA_WITH_AES_128_CBC_SHA256(0x0067), TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA(0xC00A), TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA(0xC014), TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA(0xC009), TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA(0xC013), TLS_DHE_RSA_WITH_AES_256_CBC_SHA(0x0039), TLS_DHE_RSA_WITH_AES_128_CBC_SHA(0x0033), TLS_RSA_WITH_AES_256_GCM_SHA384(0x009D), TLS_RSA_WITH_AES_128_GCM_SHA256(0x009C), TLS_RSA_WITH_AES_256_CBC_SHA256(0x003D), TLS_RSA_WITH_AES_128_CBC_SHA256(0x003C), TLS_RSA_WITH_AES_256_CBC_SHA(0x0035), TLS_RSA_WITH_AES_128_CBC_SHA(0x002F), TLS_EMPTY_RENEGOTIATION_INFO_SCSV(0x00FF)]",
+  "compression methods" : "00",
+  "extensions"          : [
+    "server_name (0)": {
+      type=host_name (0), value=kafka-mssql.intel.r7g.org
+    },
+    "status_request (5)": {
+      "certificate status type": ocsp
+      "OCSP status request": {
+        "responder_id": <empty>
+        "request extensions": {
+          <empty>
+        }
+      }
+    },
+    "supported_groups (10)": {
+      "versions": [x25519, secp256r1, secp384r1, secp521r1, x448, ffdhe2048, ffdhe3072, ffdhe4096, ffdhe6144, ffdhe8192]
+    },
+    "ec_point_formats (11)": {
+      "formats": [uncompressed]
+    },
+    "status_request_v2 (17)": {
+      "cert status request": {
+        "certificate status type": ocsp_multi
+        "OCSP status request": {
+          "responder_id": <empty>
+          "request extensions": {
+            <empty>
+          }
+        }
+      }
+    },
+    "extended_master_secret (23)": {
+      <empty>
+    },
+    "session_ticket (35)": {
+      <empty>
+    },
+    "signature_algorithms (13)": {
+      "signature schemes": [ecdsa_secp256r1_sha256, ecdsa_secp384r1_sha384, ecdsa_secp521r1_sha512, ed25519, ed448, rsa_pss_rsae_sha256, rsa_pss_rsae_sha384, rsa_pss_rsae_sha512, rsa_pss_pss_sha256, rsa_pss_pss_sha384, rsa_pss_pss_sha512, rsa_pkcs1_sha256, rsa_pkcs1_sha384, rsa_pkcs1_sha512, ecdsa_sha224, rsa_sha224]
+    },
+    "supported_versions (43)": {
+      "versions": [TLSv1.3, TLSv1.2]
+    },
+    "psk_key_exchange_modes (45)": {
+      "ke_modes": [psk_dhe_ke]
+    },
+    "signature_algorithms_cert (50)": {
+      "signature schemes": [ecdsa_secp256r1_sha256, ecdsa_secp384r1_sha384, ecdsa_secp521r1_sha512, ed25519, ed448, rsa_pss_rsae_sha256, rsa_pss_rsae_sha384, rsa_pss_rsae_sha512, rsa_pss_pss_sha256, rsa_pss_pss_sha384, rsa_pss_pss_sha512, rsa_pkcs1_sha256, rsa_pkcs1_sha384, rsa_pkcs1_sha512, ecdsa_sha224, rsa_sha224]
+    },
+    "key_share (51)": {
+      "client_shares": [
+        {
+          "named group": x25519
+          "key_exchange": {
+            0000: 23 0C 86 A8 10 74 E1 C9   FC D0 FE DD 1E 2A 1D 30  #....t.......*.0
+            0010: 05 75 FA A1 D1 7D 34 2F   CB C4 9F 1C 44 95 0A 62  .u....4/....D..b
+          }
+        },
+        {
+          "named group": secp256r1
+          "key_exchange": {
+            0000: 04 BC 58 DA 0F 20 7C E4   32 4F DF 19 95 4B 8B BE  ..X.. ..2O...K..
+            0010: 32 51 17 C4 E9 6E DB 65   E4 A2 A1 C5 F2 61 58 7D  2Q...n.e.....aX.
+            0020: CD 94 3F 40 98 B1 FD 10   28 CE 49 89 A1 4D 81 1E  ..?@....(.I..M..
+            0030: B7 18 53 7C A1 BF 9A 66   8C 7C 12 0A 12 14 4C D3  ..S....f......L.
+            0040: AB
+          }
+        },
+      ]
+    }
+  ]
+}
+)
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.708 PDT|ServerHello.java:897|Consuming ServerHello handshake message (
+"ServerHello": {
+  "server version"      : "TLSv1.2",
+  "random"              : "68CC766F82E9A65D44C3BB3B966EC18A4CB1E8491B3831FC1F1E9034A193C02E",
+  "session id"          : "4237000097399BA8867B5A408D9C7F750D991A23961266589CECBC205146D9EF",
+  "cipher suite"        : "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384(0xC030)",
+  "compression methods" : "00",
+  "extensions"          : [
+    "extended_master_secret (23)": {
+      <empty>
+    },
+    "renegotiation_info (65,281)": {
+      "renegotiated connection": [<no renegotiated connection>]
+    }
+  ]
+}
+)
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.708 PDT|SSLExtensions.java:185|Ignore unavailable extension: supported_versions
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.709 PDT|ServerHello.java:993|Negotiated protocol version: TLSv1.2
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.710 PDT|SSLExtensions.java:204|Consumed extension: renegotiation_info
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.711 PDT|SSLExtensions.java:185|Ignore unavailable extension: server_name
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.711 PDT|SSLExtensions.java:185|Ignore unavailable extension: max_fragment_length
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.711 PDT|SSLExtensions.java:185|Ignore unavailable extension: status_request
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.712 PDT|SSLExtensions.java:185|Ignore unavailable extension: ec_point_formats
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.712 PDT|SSLExtensions.java:185|Ignore unavailable extension: status_request_v2
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.712 PDT|SSLExtensions.java:204|Consumed extension: extended_master_secret
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.713 PDT|SSLExtensions.java:185|Ignore unavailable extension: session_ticket
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.713 PDT|SSLExtensions.java:175|Ignore unsupported extension: supported_versions
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.713 PDT|SSLExtensions.java:175|Ignore unsupported extension: key_share
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.713 PDT|SSLExtensions.java:204|Consumed extension: renegotiation_info
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.714 PDT|SSLExtensions.java:175|Ignore unsupported extension: pre_shared_key
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.714 PDT|SSLExtensions.java:219|Ignore unavailable extension: server_name
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.714 PDT|SSLExtensions.java:219|Ignore unavailable extension: max_fragment_length
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.715 PDT|SSLExtensions.java:219|Ignore unavailable extension: status_request
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.715 PDT|SSLExtensions.java:219|Ignore unavailable extension: ec_point_formats
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.715 PDT|SSLExtensions.java:219|Ignore unavailable extension: application_layer_protocol_negotiation
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.715 PDT|SSLExtensions.java:219|Ignore unavailable extension: status_request_v2
+javax.net.ssl|WARNING|10|main|2025-09-18 14:15:27.716 PDT|SSLExtensions.java:227|Ignore impact of unsupported extension: extended_master_secret
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.716 PDT|SSLExtensions.java:219|Ignore unavailable extension: session_ticket
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.716 PDT|SSLExtensions.java:219|Ignore unavailable extension: supported_versions
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.716 PDT|SSLExtensions.java:219|Ignore unavailable extension: key_share
+javax.net.ssl|WARNING|10|main|2025-09-18 14:15:27.717 PDT|SSLExtensions.java:227|Ignore impact of unsupported extension: renegotiation_info
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.717 PDT|SSLExtensions.java:219|Ignore unavailable extension: pre_shared_key
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.720 PDT|CertificateMessage.java:366|Consuming server Certificate handshake message (
+"Certificates": [
+  "certificate" : {
+    "version"            : "v3",
+    "serial number"      : "76:54:38:47:ba:9d:22:ae:40:33:14:20:ee:aa:80:01",
+    "signature algorithm": "SHA256withRSA",
+    "issuer"             : "CN=SSL_Self_Signed_Fallback",
+    "not before"         : "2025-09-18 04:18:50.000 PDT",
+    "not  after"         : "2055-09-18 04:18:50.000 PDT",
+    "subject"            : "CN=SSL_Self_Signed_Fallback",
+    "subject public key" : "RSA"}
+]
+)
+javax.net.ssl|ERROR|10|main|2025-09-18 14:15:27.745 PDT|TransportContext.java:375|Fatal (CERTIFICATE_UNKNOWN): PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target (
+"throwable" : {
+  sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+        at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:439)
+        at java.base/sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:306)
+        at java.base/sun.security.validator.Validator.validate(Validator.java:264)
+        at java.base/sun.security.ssl.X509TrustManagerImpl.checkTrusted(X509TrustManagerImpl.java:242)
+        at java.base/sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(X509TrustManagerImpl.java:113)
+        at com.microsoft.sqlserver.jdbc.HostNameOverrideX509TrustManager.checkServerTrusted(SQLServerTrustManager.java:88)
+        at java.base/sun.security.ssl.AbstractTrustManagerWrapper.checkServerTrusted(SSLContextImpl.java:1436)
+        at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.checkServerCerts(CertificateMessage.java:638)
+        at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.onCertificate(CertificateMessage.java:473)
+        at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.consume(CertificateMessage.java:369)
+        at java.base/sun.security.ssl.SSLHandshake.consume(SSLHandshake.java:396)
+        at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:480)
+        at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:458)
+        at java.base/sun.security.ssl.TransportContext.dispatch(TransportContext.java:206)
+        at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:172)
+        at java.base/sun.security.ssl.SSLSocketImpl.decode(SSLSocketImpl.java:1510)
+        at java.base/sun.security.ssl.SSLSocketImpl.readHandshakeRecord(SSLSocketImpl.java:1425)
+        at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:455)
+        at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:426)
+        at com.microsoft.sqlserver.jdbc.TDSChannel.enableSSL(IOBuffer.java:1843)
+        at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectHelper(SQLServerConnection.java:3552)
+        at com.microsoft.sqlserver.jdbc.SQLServerConnection.login(SQLServerConnection.java:3172)
+        at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectInternal(SQLServerConnection.java:3014)
+        at com.microsoft.sqlserver.jdbc.SQLServerConnection.connect(SQLServerConnection.java:1836)
+        at com.microsoft.sqlserver.jdbc.SQLServerDriver.connect(SQLServerDriver.java:1246)
+        at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+        at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+        at Tester.main(Tester.java:34)
+  Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+        at java.base/sun.security.provider.certpath.SunCertPathBuilder.build(SunCertPathBuilder.java:148)
+        at java.base/sun.security.provider.certpath.SunCertPathBuilder.engineBuild(SunCertPathBuilder.java:129)
+        at java.base/java.security.cert.CertPathBuilder.build(CertPathBuilder.java:297)
+        at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:434)
+        ... 27 more}
+
+)
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.746 PDT|SSLSocketImpl.java:1759|close the underlying socket
+javax.net.ssl|DEBUG|10|main|2025-09-18 14:15:27.746 PDT|SSLSocketImpl.java:1785|close the SSL connection (passive)
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+? Connection failed (SQLException):
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Message: "encrypt" property is set to "true" and "trustServerCertificate" property is set to "false" but the driver could not establish a secure connection to SQL Server by using Secure Sockets Layer (SSL) encryption: Error: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target. ClientConnectionId:d50f1f91-2cfa-4ba4-ade4-2ac0277519c8
+SQLState: 08S01
+ErrorCode: 0
+com.microsoft.sqlserver.jdbc.SQLServerException: "encrypt" property is set to "true" and "trustServerCertificate" property is set to "false" but the driver could not establish a secure connection to SQL Server by using Secure Sockets Layer (SSL) encryption: Error: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target. ClientConnectionId:d50f1f91-2cfa-4ba4-ade4-2ac0277519c8
+        at com.microsoft.sqlserver.jdbc.SQLServerConnection.terminate(SQLServerConnection.java:4026)
+        at com.microsoft.sqlserver.jdbc.TDSChannel.enableSSL(IOBuffer.java:1954)
+        at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectHelper(SQLServerConnection.java:3552)
+        at com.microsoft.sqlserver.jdbc.SQLServerConnection.login(SQLServerConnection.java:3172)
+        at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectInternal(SQLServerConnection.java:3014)
+        at com.microsoft.sqlserver.jdbc.SQLServerConnection.connect(SQLServerConnection.java:1836)
+        at com.microsoft.sqlserver.jdbc.SQLServerDriver.connect(SQLServerDriver.java:1246)
+        at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+        at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+        at Tester.main(Tester.java:34)
+Caused by: javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+        at java.base/sun.security.ssl.Alert.createSSLException(Alert.java:131)
+        at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:383)
+        at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:326)
+        at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:321)
+        at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.checkServerCerts(CertificateMessage.java:654)
+        at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.onCertificate(CertificateMessage.java:473)
+        at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.consume(CertificateMessage.java:369)
+        at java.base/sun.security.ssl.SSLHandshake.consume(SSLHandshake.java:396)
+        at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:480)
+        at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:458)
+        at java.base/sun.security.ssl.TransportContext.dispatch(TransportContext.java:206)
+        at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:172)
+        at java.base/sun.security.ssl.SSLSocketImpl.decode(SSLSocketImpl.java:1510)
+        at java.base/sun.security.ssl.SSLSocketImpl.readHandshakeRecord(SSLSocketImpl.java:1425)
+        at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:455)
+        at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:426)
+        at com.microsoft.sqlserver.jdbc.TDSChannel.enableSSL(IOBuffer.java:1843)
+        ... 8 more
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+        at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:439)
+        at java.base/sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:306)
+        at java.base/sun.security.validator.Validator.validate(Validator.java:264)
+        at java.base/sun.security.ssl.X509TrustManagerImpl.checkTrusted(X509TrustManagerImpl.java:242)
+        at java.base/sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(X509TrustManagerImpl.java:113)
+        at com.microsoft.sqlserver.jdbc.HostNameOverrideX509TrustManager.checkServerTrusted(SQLServerTrustManager.java:88)
+        at java.base/sun.security.ssl.AbstractTrustManagerWrapper.checkServerTrusted(SSLContextImpl.java:1436)
+        at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.checkServerCerts(CertificateMessage.java:638)
+        ... 20 more
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+        at java.base/sun.security.provider.certpath.SunCertPathBuilder.build(SunCertPathBuilder.java:148)
+        at java.base/sun.security.provider.certpath.SunCertPathBuilder.engineBuild(SunCertPathBuilder.java:129)
+        at java.base/java.security.cert.CertPathBuilder.build(CertPathBuilder.java:297)
+        at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:434)
+        ... 27 more
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Caused by: javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+javax.net.ssl.SSLHandshakeException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+        at java.base/sun.security.ssl.Alert.createSSLException(Alert.java:131)
+        at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:383)
+        at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:326)
+        at java.base/sun.security.ssl.TransportContext.fatal(TransportContext.java:321)
+        at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.checkServerCerts(CertificateMessage.java:654)
+        at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.onCertificate(CertificateMessage.java:473)
+        at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.consume(CertificateMessage.java:369)
+        at java.base/sun.security.ssl.SSLHandshake.consume(SSLHandshake.java:396)
+        at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:480)
+        at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:458)
+        at java.base/sun.security.ssl.TransportContext.dispatch(TransportContext.java:206)
+        at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:172)
+        at java.base/sun.security.ssl.SSLSocketImpl.decode(SSLSocketImpl.java:1510)
+        at java.base/sun.security.ssl.SSLSocketImpl.readHandshakeRecord(SSLSocketImpl.java:1425)
+        at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:455)
+        at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:426)
+        at com.microsoft.sqlserver.jdbc.TDSChannel.enableSSL(IOBuffer.java:1843)
+        at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectHelper(SQLServerConnection.java:3552)
+        at com.microsoft.sqlserver.jdbc.SQLServerConnection.login(SQLServerConnection.java:3172)
+        at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectInternal(SQLServerConnection.java:3014)
+        at com.microsoft.sqlserver.jdbc.SQLServerConnection.connect(SQLServerConnection.java:1836)
+        at com.microsoft.sqlserver.jdbc.SQLServerDriver.connect(SQLServerDriver.java:1246)
+        at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+        at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+        at Tester.main(Tester.java:34)
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+        at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:439)
+        at java.base/sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:306)
+        at java.base/sun.security.validator.Validator.validate(Validator.java:264)
+        at java.base/sun.security.ssl.X509TrustManagerImpl.checkTrusted(X509TrustManagerImpl.java:242)
+        at java.base/sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(X509TrustManagerImpl.java:113)
+        at com.microsoft.sqlserver.jdbc.HostNameOverrideX509TrustManager.checkServerTrusted(SQLServerTrustManager.java:88)
+        at java.base/sun.security.ssl.AbstractTrustManagerWrapper.checkServerTrusted(SSLContextImpl.java:1436)
+        at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.checkServerCerts(CertificateMessage.java:638)
+        ... 20 more
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+        at java.base/sun.security.provider.certpath.SunCertPathBuilder.build(SunCertPathBuilder.java:148)
+        at java.base/sun.security.provider.certpath.SunCertPathBuilder.engineBuild(SunCertPathBuilder.java:129)
+        at java.base/java.security.cert.CertPathBuilder.build(CertPathBuilder.java:297)
+        at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:434)
+        ... 27 more
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Caused by: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+        at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:439)
+        at java.base/sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:306)
+        at java.base/sun.security.validator.Validator.validate(Validator.java:264)
+        at java.base/sun.security.ssl.X509TrustManagerImpl.checkTrusted(X509TrustManagerImpl.java:242)
+        at java.base/sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(X509TrustManagerImpl.java:113)
+        at com.microsoft.sqlserver.jdbc.HostNameOverrideX509TrustManager.checkServerTrusted(SQLServerTrustManager.java:88)
+        at java.base/sun.security.ssl.AbstractTrustManagerWrapper.checkServerTrusted(SSLContextImpl.java:1436)
+        at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.checkServerCerts(CertificateMessage.java:638)
+        at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.onCertificate(CertificateMessage.java:473)
+        at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.consume(CertificateMessage.java:369)
+        at java.base/sun.security.ssl.SSLHandshake.consume(SSLHandshake.java:396)
+        at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:480)
+        at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:458)
+        at java.base/sun.security.ssl.TransportContext.dispatch(TransportContext.java:206)
+        at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:172)
+        at java.base/sun.security.ssl.SSLSocketImpl.decode(SSLSocketImpl.java:1510)
+        at java.base/sun.security.ssl.SSLSocketImpl.readHandshakeRecord(SSLSocketImpl.java:1425)
+        at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:455)
+        at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:426)
+        at com.microsoft.sqlserver.jdbc.TDSChannel.enableSSL(IOBuffer.java:1843)
+        at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectHelper(SQLServerConnection.java:3552)
+        at com.microsoft.sqlserver.jdbc.SQLServerConnection.login(SQLServerConnection.java:3172)
+        at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectInternal(SQLServerConnection.java:3014)
+        at com.microsoft.sqlserver.jdbc.SQLServerConnection.connect(SQLServerConnection.java:1836)
+        at com.microsoft.sqlserver.jdbc.SQLServerDriver.connect(SQLServerDriver.java:1246)
+        at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+        at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+        at Tester.main(Tester.java:34)
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+        at java.base/sun.security.provider.certpath.SunCertPathBuilder.build(SunCertPathBuilder.java:148)
+        at java.base/sun.security.provider.certpath.SunCertPathBuilder.engineBuild(SunCertPathBuilder.java:129)
+        at java.base/java.security.cert.CertPathBuilder.build(CertPathBuilder.java:297)
+        at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:434)
+        ... 27 more
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+Caused by: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
+        at java.base/sun.security.provider.certpath.SunCertPathBuilder.build(SunCertPathBuilder.java:148)
+        at java.base/sun.security.provider.certpath.SunCertPathBuilder.engineBuild(SunCertPathBuilder.java:129)
+        at java.base/java.security.cert.CertPathBuilder.build(CertPathBuilder.java:297)
+        at java.base/sun.security.validator.PKIXValidator.doBuild(PKIXValidator.java:434)
+        at java.base/sun.security.validator.PKIXValidator.engineValidate(PKIXValidator.java:306)
+        at java.base/sun.security.validator.Validator.validate(Validator.java:264)
+        at java.base/sun.security.ssl.X509TrustManagerImpl.checkTrusted(X509TrustManagerImpl.java:242)
+        at java.base/sun.security.ssl.X509TrustManagerImpl.checkServerTrusted(X509TrustManagerImpl.java:113)
+        at com.microsoft.sqlserver.jdbc.HostNameOverrideX509TrustManager.checkServerTrusted(SQLServerTrustManager.java:88)
+        at java.base/sun.security.ssl.AbstractTrustManagerWrapper.checkServerTrusted(SSLContextImpl.java:1436)
+        at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.checkServerCerts(CertificateMessage.java:638)
+        at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.onCertificate(CertificateMessage.java:473)
+        at java.base/sun.security.ssl.CertificateMessage$T12CertificateConsumer.consume(CertificateMessage.java:369)
+        at java.base/sun.security.ssl.SSLHandshake.consume(SSLHandshake.java:396)
+        at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:480)
+        at java.base/sun.security.ssl.HandshakeContext.dispatch(HandshakeContext.java:458)
+        at java.base/sun.security.ssl.TransportContext.dispatch(TransportContext.java:206)
+        at java.base/sun.security.ssl.SSLTransport.decode(SSLTransport.java:172)
+        at java.base/sun.security.ssl.SSLSocketImpl.decode(SSLSocketImpl.java:1510)
+        at java.base/sun.security.ssl.SSLSocketImpl.readHandshakeRecord(SSLSocketImpl.java:1425)
+        at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:455)
+        at java.base/sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:426)
+        at com.microsoft.sqlserver.jdbc.TDSChannel.enableSSL(IOBuffer.java:1843)
+        at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectHelper(SQLServerConnection.java:3552)
+        at com.microsoft.sqlserver.jdbc.SQLServerConnection.login(SQLServerConnection.java:3172)
+        at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectInternal(SQLServerConnection.java:3014)
+        at com.microsoft.sqlserver.jdbc.SQLServerConnection.connect(SQLServerConnection.java:1836)
+        at com.microsoft.sqlserver.jdbc.SQLServerDriver.connect(SQLServerDriver.java:1246)
+        at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:681)
+        at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:229)
+        at Tester.main(Tester.java:34)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+[root@dev meuhedet]#
