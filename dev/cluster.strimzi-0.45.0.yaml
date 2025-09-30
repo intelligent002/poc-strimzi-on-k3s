@@ -114,11 +114,12 @@ spec:
   class: io.debezium.connector.sqlserver.SqlServerConnector
   tasksMax: 1
   config:
-    database.hostname: kafka-mssql.intel.r7g.org
-    database.port: 1433
+    database.hostname: kafka-sql-2016.intel.r7g.org
+    database.port: 7433
     database.user: debezium_user
-    database.password: StrongPassword123!
+    database.password: StrongPassword!123
     database.names: FHIR
+    database.autoReconnect: true
     database.encrypt: false
     database.trustServerCertificate: false
     topic.prefix: cdc-mssql

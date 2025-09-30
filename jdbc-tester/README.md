@@ -56,13 +56,16 @@ Run the tool with the required parameters:
 ## 📋 Example
 
 ```bash
-    java -cp .:mssql-jdbc.jar Tester \
-        -user "debezium_user" \
-        -pass "StrongPassword123!" \
-        -host "kafka-mssql.intel.r7g.org" \
-        -base "FHIR" \
-        -encrypt "true" \
-        -trustServerCertificate "false"
+   java \ 
+    -cp .:mssql-jdbc.jar Tester \
+    -user 'debezium_user' \
+    -pass 'StrongPassword!123' \
+    -host 'kafka-sql-2022.intel.r7g.org' \
+    -port '7433' \
+    -instance '' \
+    -base 'FHIR' \
+    -encrypt 'true' \
+    -trustServerCertificate 'false'
 ```
 
 Output:
@@ -89,14 +92,16 @@ ErrorCode: 0
 To see full TLS negotiation, cipher suites, and certificates from the server:
 
 ```bash
-    java -Djavax.net.debug=ssl,handshake \
-        -cp .:mssql-jdbc.jar Tester \
-        -user "debezium_user" \
-        -pass "StrongPassword123!" \
-        -host "kafka-mssql.intel.r7g.org" \
-        -base "FHIR" \
-        -encrypt "true" \
-        -trustServerCertificate "false"
+   java -Djavax.net.debug=ssl,handshake \
+    -cp .:mssql-jdbc.jar Tester \
+    -user 'debezium_user' \
+    -pass 'StrongPassword!123' \
+    -host 'kafka-sql-2022.intel.r7g.org' \
+    -port '7433' \
+    -instance '' \
+    -base 'FHIR' \
+    -encrypt 'true' \
+    -trustServerCertificate 'false'
 ```
 
 This prints:
