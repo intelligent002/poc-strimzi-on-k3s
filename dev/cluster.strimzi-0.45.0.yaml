@@ -73,7 +73,7 @@ spec:
   version: 3.9.0
   replicas: 3
   bootstrapServers: my-cluster-kafka-bootstrap:9092
-  image: docker.artifactory.intel.r7g.org/kafka/kafka-connect-with-connectors:2022-09-12---00-15-00
+  image: docker.artifactory.intel.r7g.org/kafka/kafka-connect-with-connectors:0.45.0-kafka-3.9.0
   config:
     group.id: connect-cluster
     offset.storage.topic: connect-offsets

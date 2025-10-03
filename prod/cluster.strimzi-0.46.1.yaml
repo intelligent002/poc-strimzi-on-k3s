@@ -73,7 +73,7 @@ spec:
   version: 3.9.0
   replicas: 3
   bootstrapServers: my-cluster-kafka-bootstrap:9092
-  image: docker.artifactory.intel.r7g.org/kafka/kafka-connect-with-connectors:2022-09-12---00-15-01
+  image: docker.artifactory.intel.r7g.org/kafka/kafka-connect-with-connectors:0.46.1-kafka-3.9.0
   config:
     group.id: connect-cluster
     offset.storage.topic: connect-offsets
@@ -114,13 +114,14 @@ spec:
   class: io.debezium.connector.sqlserver.SqlServerConnector
   tasksMax: 1
   config:
-    database.hostname: kafka-mssql.intel.r7g.org
-    database.names: FHIR
-    database.port: 1433
+    database.hostname: kafka-sql-2016.intel.r7g.org
+    database.port: 7433
     database.user: debezium_user
-    database.password: StrongPassword123!
+    database.password: StrongPassword!123
+    database.names: FHIR
+    database.autoReconnect: true
+    database.encrypt: false
+    database.trustServerCertificate: false
+    topic.prefix: cdc-mssql
     schema.history.internal.kafka.bootstrap.servers: my-cluster-kafka-bootstrap:9092
     schema.history.internal.kafka.topic: cdc-mssql-schema-history
-    topic.prefix: cdc-mssql
-    database.encrypt: "true"
-    database.trustServerCertificate: "true"
