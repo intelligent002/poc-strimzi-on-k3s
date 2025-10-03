@@ -1,2 +1,4 @@
+#!/usr/bin/pwsh
+
 docker build --progress=plain --platform linux/amd64 . --tag docker.artifactory.intel.r7g.org/kafka/kafka-connect-with-connectors:0.45.0-kafka-3.9.0
 docker push docker.artifactory.intel.r7g.org/kafka/kafka-connect-with-connectors:0.45.0-kafka-3.9.0
